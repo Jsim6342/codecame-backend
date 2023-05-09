@@ -1,5 +1,5 @@
 import { checkEmail, getWelcomeTemplate, sendTemplateToEmail } from './email.js';
-import { getToday } from './utils.js';
+
 
 
 function createUser({ name, age, school, email }) {
