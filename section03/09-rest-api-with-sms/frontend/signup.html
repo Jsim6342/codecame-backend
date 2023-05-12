@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>회원가입</title>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+			function certificate() {
+				// 1. 입력한 휴대폰 번호 가져오기
+				const inputNumber =
+					document.getElementById("phoneNumber").value;
+				console.log(`나의 핸드폰 번호 ${inputNumber}`);
+
+				// 2. 해당 번호로 API 요청
+				axios
+					.post("http://localhost:3000/tokens/phone", {
+						phoneNumber: inputNumber,
+					})
+					.then((res) => {
+						console.log(res.data);
+						document.getElementById("result").innerText = res.data;
+					});
+			}
+		</script>
+	</head>
+	<body>
+		휴대폰 번호: <input id="phoneNumber" type="text" />
+		<button onclick="certificate()">인증하기</button>
+		<div id="result">인증상태</div>
+		<button>회원가입 하기</button>
+	</body>
+</html>

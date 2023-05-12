@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "coolsms-node-sdk": "^2.0.1",
+    "dotenv": "^16.0.3"
+  }
+}
