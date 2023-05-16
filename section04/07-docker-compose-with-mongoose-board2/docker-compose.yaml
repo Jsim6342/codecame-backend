@@ -1,0 +1,22 @@
+version: '3.7'
+
+# 컴퓨터들
+services:
+
+  # 컴퓨터1
+  my-backend:
+    build:
+      context: . #경로
+      dockerfile: Dockerfile #파일명
+    volumes:
+      - ./index.js:/myfolder/index.js
+      - ./email.js:/myfolder/email.js
+      # - ./src:/myfolder/src 처럼 폴더 하나에 volumes에 관련된 파일을 모두 담아 활용해도됨.
+    ports: # 포트포워딩
+      - 3000:3000
+
+  # 컴퓨터2
+  my-database:
+    image: mongo:5 # 이미지 1개만 다운받는 경우
+    ports:
+      - 27017:27017

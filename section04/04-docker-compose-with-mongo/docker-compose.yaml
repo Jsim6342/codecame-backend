@@ -1,0 +1,20 @@
+version: '3.7'
+
+# 컴퓨터들
+services:
+
+  # 컴퓨터1
+  my-backend:
+    build:
+      context: . #경로
+      dockerfile: Dockerfile #파일명
+    ports: # 포트포워딩
+      - 3000:3000
+
+  # 컴퓨터2
+  my-database:
+    build:
+      context: .
+      dockerfile: Dockerfile.mongo
+    ports:
+      - 27017:27017
