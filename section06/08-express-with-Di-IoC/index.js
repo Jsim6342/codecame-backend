@@ -1,9 +1,6 @@
 import express from "express";
 
-import {
-	ProductController,
-	ProductController,
-} from "./mvc/controllers/product.controller";
+import { ProductController } from "./mvc/controllers/product.controller";
 
 import { CouponController } from "./mvc/controllers/coupon.controller";
 import { ProductService } from "./mvc/controllers/services/product.service";
