@@ -1,0 +1,25 @@
+version: '3.7'
+
+# 컴퓨터들
+services:
+  # 컴퓨터1
+  my-backend:
+    build:
+      context: . #경로
+      dockerfile: Dockerfile #파일명
+    volumes:
+      - ./src:/myfolder/src # 로컬파일경로:docker내부경로
+    ports: # 포트포워딩
+      - 3000:3000
+    env_file:
+      - ./.env.docker # docker 환경변수 따로 설정
+
+  # 컴퓨터2
+  my-database:
+    # platform: linux/86_64 # CPU 문제
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'myproject'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306
